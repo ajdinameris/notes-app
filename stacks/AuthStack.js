@@ -14,11 +14,18 @@ export default class AuthStack extends sst.Stack {
 		this.auth = new sst.Auth(this, "Auth", {
 			cognito: {
 				userPool: {
-					// Users can login with their email and password
-					signInAliases: { email: true },
+					// Users can login with their phone
+					signInAliases: { phone: true },
 				},
+				triggers: {
+					createAuthChallenge: "./src/triggers/createAuthChallenge.main",
+					defineAuthChallenge: "./src/triggers/defineAuthChallenge.main",
+					verifyAuthChallengeResponse: "./src/triggers/verifyAuthChallenge.main",
+					preSignUp: "./src/triggers/preSignUp.main"
+				}
 			},
 		});
+
 
 		this.auth.attachPermissionsForAuthUsers([
 			// Allow access to the API
@@ -32,6 +39,14 @@ export default class AuthStack extends sst.Stack {
 				],
 			}),
 		]);
+
+		this.auth.attachPermissionsForTriggers([
+			new iam.PolicyStatement({
+				actions: ["sns:Publish"],
+				effect: iam.Effect.ALLOW,
+				resources: ["*"]
+			})
+		])
 
 		// Show the auth resources in the output
 		this.addOutputs({
