@@ -132,6 +132,7 @@ export default function Signup() {
   // );
   
     const [message, setMessage] = useState('Welcome to Demo');
+    const history = useHistory();
     const [user, setUser] = useState(null);
     const [session, setSession] = useState(null);
     const [otp, setOtp] = useState('');
@@ -197,6 +198,7 @@ export default function Signup() {
           setUser(user);
           setMessage(SIGNEDIN);
           setSession(null);
+          history.push("/");
         })
         .catch((err) => {
           setMessage(err.message);
