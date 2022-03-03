@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import Form from "react-bootstrap/Form";
+// import Form from "react-bootstrap/Form";
 import { useHistory } from "react-router-dom";
-import LoaderButton from "../components/LoaderButton";
-import { useAppContext } from "../lib/contextLib";
-import { useFormFields } from "../lib/hooksLib";
-import { onError } from "../lib/errorLib";
+// import LoaderButton from "../components/LoaderButton";
+// import { useAppContext } from "../lib/contextLib";
+// import { useFormFields } from "../lib/hooksLib";
+// import { onError } from "../lib/errorLib";
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
-import  Amplify, { Auth } from "aws-amplify";
+import { Auth } from "aws-amplify";
 import "./Signup.css";
 
 const NOTSIGNIN = 'You are NOT logged in';
