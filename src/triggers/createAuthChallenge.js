@@ -12,7 +12,7 @@ export const main = (event, context, callback) => {
   const sns = new AWS.SNS({ region: 'us-east-1' });
   sns.publish(
     {
-      Message: 'your otp: ' + challengeAnswer,
+      Message: 'Your code: ' + challengeAnswer,
       PhoneNumber: phoneNumber,
       MessageStructure: 'string',
       MessageAttributes: {
