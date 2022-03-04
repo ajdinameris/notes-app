@@ -61,8 +61,11 @@ function App() {
                 </>
               ) : (
                 <>
-                  <LinkContainer to="/login">
+                  {/* <LinkContainer to="/login">
                     <Nav.Link>Login</Nav.Link>
+                  </LinkContainer> */}
+                  <LinkContainer to="/signup">
+                    <Nav.Link>Sign Up</Nav.Link>
                   </LinkContainer>
                 </>
               )}

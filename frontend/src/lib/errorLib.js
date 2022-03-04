@@ -1,5 +1,5 @@
 import * as Sentry from "@sentry/browser";
-import config from "../config";
+// import config from "../config";
 
 const isLocal = process.env.NODE_ENV === "development";
 
